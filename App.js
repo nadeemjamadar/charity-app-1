@@ -40,6 +40,7 @@ async function loadResourcesAsync() {
       // We include SpaceMono because we use it in HomeScreen.js. Feel free to
       // remove this if you are not using it in your app
       'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
+      'OpenSans-Regular': require('./assets/fonts/OpenSans-Regular.ttf'),
       'OpenSans-Bold': require('./assets/fonts/OpenSans-Bold.ttf'),
       'OpenSans-Light': require('./assets/fonts/OpenSans-Light.ttf'),
       'OpenSans-SemiBold': require('./assets/fonts/OpenSans-SemiBold.ttf'),

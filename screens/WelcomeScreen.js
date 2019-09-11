@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
   },
   getStartedButton: {
     width: '70%',
+    height: 46,
     borderRadius: 5,
     padding: 10,
     backgroundColor: '#0D65D8',
@@ -78,5 +79,6 @@ const styles = StyleSheet.create({
     fontFamily: 'OpenSans-Bold',
     fontSize: 13,
     color: '#fff',
+    marginHorizontal: 14,
   }
 });
