@@ -123,9 +123,10 @@ export default function LoginScreen(props) {
   const handleSubmit = () => {
     const value = formValue.getValue();
     console.log('value: ', value);
-    if(value != null) {
-      props.navigation.navigate('Main');
-    }
+    props.navigation.navigate('Main');
+    // if(value != null) {
+    //   props.navigation.navigate('Main');
+    // }
   }
 
   return (
@@ -153,7 +154,6 @@ export default function LoginScreen(props) {
               <Text style={styles.loginButtonText}>CONTINUE TO LOGIN</Text>
             </TouchableOpacity>
           </View>
-          {/* <View style={{ flex : 1 }} /> */}
         </View>
       </KeyboardAvoidingView>
     </SafeAreaView>

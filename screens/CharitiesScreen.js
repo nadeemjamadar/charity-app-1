@@ -17,23 +17,9 @@ import Button from "../components/Button";
 import CharityItem from "../components/CharityItem";
 import { icons } from "../constants/Images";
 import DATA from "../data/Charities";
-// console.log('charities', charities);
 
-// const DATA = [
-//   {
-//     id: 1,
-//     title: 'St. Loueis Welfare Org.',
-//     image: charities.loueis,
-//   },
-//   {
-//     id: 2,
-//     title: 'St. Loueis Welfare Org.',
-//     image: charities.loueis,
-//   }
-// ];
-
-export default function HomeScreen() {
-  const [expanded, setExpanded] = useState(true);
+export default function CharitiesScreen() {
+  const [expanded, setExpanded] = useState(false);
   const [updatedHeight, setUpdatedHeight] = useState(200);
 
   useEffect(() => {
@@ -119,7 +105,7 @@ export default function HomeScreen() {
   );
 }
 
-HomeScreen.navigationOptions = {
+CharitiesScreen.navigationOptions = {
   header: null
 };
 

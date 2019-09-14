@@ -4,12 +4,15 @@ import {
   Text, 
   StyleSheet, 
   Image,
-  TouchableOpacity
+  TouchableOpacity,
  } from 'react-native';
+ import { SafeAreaView } from 'react-navigation';
+
+ import { backgrounds } from '../constants/Images';
 
 export default function WelcomeScreen(props) {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.upperContainer}>
         <Text style={styles.upperFirstText}>Acts.Of.Life</Text>
         <Text style={styles.upperSecondText}>Sharing made social.</Text>
@@ -17,7 +20,7 @@ export default function WelcomeScreen(props) {
       <View style={styles.imgContainer}>
         <Image 
           style={styles.img}
-          source={require('../assets/images/kids.png')}
+          source={backgrounds.kids}
         />
       </View>
       <View style={styles.bottomContainer}>
@@ -27,7 +30,7 @@ export default function WelcomeScreen(props) {
           <Text style={styles.getStartedText}>GET STARTED</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   )
 }
 

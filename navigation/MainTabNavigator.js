@@ -4,6 +4,7 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
+import CharitiesScreen from '../screens/CharitiesScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
@@ -33,7 +34,28 @@ HomeStack.navigationOptions = {
   ),
 };
 
-HomeStack.path = '';
+const CharitiesStack = createStackNavigator(
+  {
+    Charities: CharitiesScreen,
+  },
+  config
+);
+
+CharitiesStack.navigationOptions = {
+  tabBarLabel: 'Charities',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={
+        Platform.OS === 'ios'
+          ? `ios-information-circle${focused ? '' : '-outline'}`
+          : 'md-information-circle'
+      }
+    />
+  ),
+};
+
+CharitiesStack.path = '';
 
 const LinksStack = createStackNavigator(
   {
@@ -69,6 +91,7 @@ SettingsStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
+  CharitiesStack,
   LinksStack,
   SettingsStack,
 });
