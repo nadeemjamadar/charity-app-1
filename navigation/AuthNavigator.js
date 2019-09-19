@@ -1,5 +1,3 @@
-import React from 'react';
-import { Ionicon } from '@expo/vector-icons';
 import { Platform } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 

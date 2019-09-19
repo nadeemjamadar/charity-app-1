@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
@@ -5,8 +6,12 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import CharitiesScreen from '../screens/CharitiesScreen';
-import LinksScreen from '../screens/LinksScreen';
+import ExploreScreen from '../screens/ExploreScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import Colors from '../constants/Colors';
+import CharityIcon from '../assets/images/charity.svg';
+import ExploreIcon from '../assets/images/explorer.svg';
+import CharityDetailsScreen from '../screens/CharityDetailsScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -16,12 +21,13 @@ const config = Platform.select({
 const HomeStack = createStackNavigator(
   {
     Home: HomeScreen,
+    CharityDetails: CharityDetailsScreen,
   },
   config
 );
 
 HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
+  tabBarLabel: 'HOME',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -37,41 +43,34 @@ HomeStack.navigationOptions = {
 const CharitiesStack = createStackNavigator(
   {
     Charities: CharitiesScreen,
+    CharityDetails: CharityDetailsScreen,
   },
   config
 );
 
 CharitiesStack.navigationOptions = {
-  tabBarLabel: 'Charities',
+  tabBarLabel: 'CHARITIES',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
-    />
+    <CharityIcon width={20} height={20} fill={focused ? Colors.tabIconSelected : '#757E90'} />
   ),
 };
 
-CharitiesStack.path = '';
-
-const LinksStack = createStackNavigator(
+const ExploreStack = createStackNavigator(
   {
-    Links: LinksScreen,
+    Explore: ExploreScreen,
+    CharityDetails: CharityDetailsScreen,
   },
   config
 );
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+ExploreStack.navigationOptions = {
+  tabBarLabel: 'EXPLORE',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+    <ExploreIcon width={20} height={20} fill={focused ? Colors.tabIconSelected : '#757E90'} />
   ),
 };
 
-LinksStack.path = '';
+ExploreStack.path = '';
 
 const SettingsStack = createStackNavigator(
   {
@@ -92,7 +91,7 @@ SettingsStack.path = '';
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
   CharitiesStack,
-  LinksStack,
+  ExploreStack,
   SettingsStack,
 });
 

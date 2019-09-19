@@ -1,14 +1,8 @@
 import React from 'react';
-import { 
-  View, 
-  Text, 
-  StyleSheet, 
-  Image,
-  TouchableOpacity,
- } from 'react-native';
- import { SafeAreaView } from 'react-navigation';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { SafeAreaView } from 'react-navigation';
 
- import { backgrounds } from '../constants/Images';
+import { backgrounds } from '../constants/Images';
 
 export default function WelcomeScreen(props) {
   return (
@@ -18,20 +12,18 @@ export default function WelcomeScreen(props) {
         <Text style={styles.upperSecondText}>Sharing made social.</Text>
       </View>
       <View style={styles.imgContainer}>
-        <Image 
-          style={styles.img}
-          source={backgrounds.kids}
-        />
+        <Image style={styles.img} source={backgrounds.kids} />
       </View>
       <View style={styles.bottomContainer}>
         <TouchableOpacity
           style={styles.getStartedButton}
-          onPress={() => props.navigation.navigate('Login')}>
+          onPress={() => props.navigation.navigate('Login')}
+        >
           <Text style={styles.getStartedText}>GET STARTED</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -51,7 +43,7 @@ const styles = StyleSheet.create({
   bottomContainer: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   upperFirstText: {
     fontFamily: 'OpenSans-Bold',
@@ -62,26 +54,26 @@ const styles = StyleSheet.create({
   upperSecondText: {
     fontFamily: 'OpenSans-Light',
     fontSize: 18,
-    color: '#757E90'
+    color: '#757E90',
   },
   img: {
     flex: 1,
     width: undefined,
     height: undefined,
-    resizeMode: 'cover'
+    resizeMode: 'cover',
   },
   getStartedButton: {
     width: '70%',
     height: 46,
     borderRadius: 5,
-    padding: 10,
     backgroundColor: '#0D65D8',
+    justifyContent: 'center',
     alignItems: 'center',
   },
   getStartedText: {
     fontFamily: 'OpenSans-Bold',
     fontSize: 13,
+    lineHeight: 18,
     color: '#fff',
-    marginHorizontal: 14,
-  }
+  },
 });
